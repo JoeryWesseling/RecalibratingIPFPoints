@@ -40,6 +40,8 @@
     <footer>
         <p>Data from <a href="https://www.openipf.org/">OpenPowerlifting</a>.</p>
         <p>Created By <a href="https://www.instagram.com/boarendss/">Bo Arends</a> And <a href="https://www.instagram.com/joerywesseling">Joery Wesseling</a>.</p>
+        <p>Want to learn more? <a href="https://github.com/JoeryWesseling/RecalibratingIPFPoints">GitHub Refitting IPF Points</a></p>
+
     </footer>
 </body>
 </html>
