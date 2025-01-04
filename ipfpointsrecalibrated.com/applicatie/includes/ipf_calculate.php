@@ -41,7 +41,6 @@ session_start();
 header(header: 'Content-Type: text/plain'); 
 
 
-// Generate CSRF token if not already set
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         // Sanitize and validate inputs

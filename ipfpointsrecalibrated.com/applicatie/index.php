@@ -28,14 +28,12 @@
 
                 <div class="select-container">
                     <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select Gender</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
                      </select>
                 </div>
                 <button type="button" id="calculate-btn" class="calculate-btn">Calculate</button>
-
-
-             
             </form>
         </div>
     </main>
