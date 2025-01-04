@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function calculateIPFPoints() {
         const bodyweight = parseFloat(document.getElementById("bodyweight").value);
         const total = parseFloat(document.getElementById("total").value);
-        const gender = document.getElementById("gender").value;
+        const sex = document.getElementById("sex").value;
 
         // If any field is incomplete or invalid, do not calculate and reset output
-        if (isNaN(bodyweight) || isNaN(total) || !gender) {
+        if (isNaN(bodyweight) || isNaN(total) || !sex) {
             // Show default 0.00 values if inputs are incomplete or invalid
             resultElement.innerHTML = "Recalibrated Score: 0.00";
             oldResultElement.innerHTML = "Old Score: 0.00";
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("bodyweight", bodyweight);
         formData.append("total", total);
-        formData.append("gender", gender);
+        formData.append("sex", sex);
 
         resultElement.textContent = "Calculating...";
         oldResultElement.textContent = "";

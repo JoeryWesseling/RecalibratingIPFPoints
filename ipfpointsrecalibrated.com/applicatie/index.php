@@ -27,8 +27,8 @@
                 <input type="number" id="bodyweight" name="bodyweight" step="0.01" min="37.5" placeholder="Bodyweight" required>
 
                 <div class="select-container">
-                    <select id="gender" name="gender" required>
-                        <option value="" disabled selected>Select Gender</option>
+                    <select id="sex" name="sex" required>
+                        <option value="" disabled selected>Select Sex</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
                      </select>
