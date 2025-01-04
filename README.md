@@ -7,9 +7,9 @@
 
 
 #### Refitting IPF Points
-The data we used for refitting. 
-The code
-The tables + Figures
+The data we used for refitting.  (CSV Format)  
+The code  
+The tables + Figures  
 
 #### ipfpointsrecalibrated.com
 The source code for a simple calculator for the new points and comparing the old.
