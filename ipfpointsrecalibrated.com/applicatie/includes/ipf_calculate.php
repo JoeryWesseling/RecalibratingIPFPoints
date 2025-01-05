@@ -1,5 +1,9 @@
 <?php
 // IPF Points Calculator function
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: https://www.ipfpointsrecalibrated.com");
+    exit;
+}
 function ipfPointsCalc($bwt, $total, $sex) {
     if ($sex === 'M') {
         $A = 1038.271102;
