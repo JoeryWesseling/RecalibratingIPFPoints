@@ -4,6 +4,7 @@
 
 1. Refitting IPF Points
 2. ipfpointsrecalibrated.com
+3. Complete report about how we refit the IPF GL Score
 
 
 #### Refitting IPF Points
