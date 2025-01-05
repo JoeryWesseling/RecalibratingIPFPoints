@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const calculateBtn = document.getElementById("calculate-btn");
 
     // Set initial values
-    resultElement.textContent = "Recalibrated Score: 0.00";
-    oldResultElement.textContent = "Old Score: 0.00";
+    resultElement.textContent = "Recalibrated IPF GL Points: 0.00";
+    oldResultElement.textContent = "Old IPF GL Points: 0.00";
 
     // Automatically calculate as input changes
     form.addEventListener("input", calculateIPFPoints);
@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // If any field is incomplete or invalid, do not calculate and reset output
         if (isNaN(bodyweight) || isNaN(total) || !sex) {
             // Show default 0.00 values if inputs are incomplete or invalid
-            resultElement.innerHTML = "Recalibrated Score: 0.00";
-            oldResultElement.innerHTML = "Old Score: 0.00";
+            resultElement.innerHTML = "Recalibrated IPF GL Points: 0.00";
+            oldResultElement.innerHTML = "Old IPF GL Points: 0.00";
             return;
         }
 
@@ -40,9 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("total", total);
         formData.append("sex", sex);
 
-        resultElement.textContent = "Calculating...";
-        oldResultElement.textContent = "";
-
+       
         fetch('includes/ipf_calculate.php', {
             method: 'POST',
             body: formData
@@ -54,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     oldResultElement.textContent = "";
                 } else {
                     // Format the output
-                    resultElement.innerHTML = `Recalibrated Score: ${data.recalibrated}`;
-                    oldResultElement.innerHTML = `Old Score: ${data.old}`;
+                    resultElement.innerHTML = `Recalibrated IPF GL Points: ${data.recalibrated}`;
+                    oldResultElement.innerHTML = `Old IPF GL Points: ${data.old}`;
                 }
             })
             .catch(error => {

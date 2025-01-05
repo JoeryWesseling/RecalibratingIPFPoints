@@ -16,8 +16,8 @@
         <h1>Calculate your Recalibrated IPF GL Score!</h1>
         <div class="form-section">
         <div class="score-section">
-                <h2 id="result">Recalibrated Score: 0.00</h2>
-                <h2 id="old-result">Old Score: 0.00</h2>
+                <h2 id="result">Recalibrated IPF Points: 0.00</h2>
+                <h2 id="old-result">Old IPF Points: 0.00</h2>
             </div>
             <form id="calculator-form">
                 <label for="total">Total Performance (kg):</label>
