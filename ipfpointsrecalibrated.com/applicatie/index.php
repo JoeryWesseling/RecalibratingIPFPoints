@@ -19,7 +19,9 @@
                 <h2 id="result">Recalibrated IPF Points: 0.00</h2>
                 <h2 id="old-result">Old IPF Points: 0.00</h2>
             </div>
+            
             <form id="calculator-form">
+            <div id="error-messages" style="color: red;"></div>
                 <label for="total">Total Performance (kg):</label>
                 <input type="number" id="total" name="total" step="0.01" placeholder="Total" required>
 
