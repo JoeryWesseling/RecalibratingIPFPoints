@@ -12,7 +12,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 
 }
 header {
     background: #f7ce4d;
@@ -28,8 +27,8 @@ header h1 {
     color: white;
 }
 h1 {
-    text-align: center;
-    color:#f7ce4d;
+    text-align: center !important;
+    color:#f7ce4d !important;
 }
 
 /* Main score section */
@@ -153,7 +152,7 @@ select::after {
 }
 
 /* Style the select container */
-select-container {
+.select-container {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -219,5 +218,8 @@ button.calculate-btn:hover {
 
     button.calculate-btn {
         font-size: 1.2em;
+    }
+    *{
+        box-sizing: border-box;
     }
 }
