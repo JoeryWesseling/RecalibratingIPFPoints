@@ -1,6 +1,6 @@
-package nl.han.oose.dea;
+package nl.recalibrating.points;
 
-import nl.han.oose.dea.exceptions.ResourceNotAvailableException;
+import nl.recalibrating.points.exceptions.ResourceNotAvailableException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,11 +45,11 @@ public class HtmlPageReader {
     }
 
     public String getContentType(String filename) {
-        for (String extension : MIME_TYPES.keySet()) {
-            if (filename.endsWith(extension)) {
-                return MIME_TYPES.get(extension);
+        for (Map.Entry<String,String> entry : MIME_TYPES.entrySet()) {
+            if (filename.endsWith(entry.getKey())) {
+                return entry.getValue();
             }
         }
-        return "application/octet-stream"; // default fallback
+        return "application/octet-stream";
     }
 }

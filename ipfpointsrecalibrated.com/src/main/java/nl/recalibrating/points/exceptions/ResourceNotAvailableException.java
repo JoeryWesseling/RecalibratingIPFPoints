@@ -1,4 +1,4 @@
-package nl.han.oose.dea.exceptions;
+package nl.recalibrating.points.exceptions;
 
 public class ResourceNotAvailableException extends Exception {
 

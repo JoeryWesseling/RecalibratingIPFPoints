@@ -1,4 +1,4 @@
-package nl.han.oose.dea;
+package nl.recalibrating.points;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
