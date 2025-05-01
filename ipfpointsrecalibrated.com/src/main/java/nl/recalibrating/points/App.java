@@ -1,4 +1,4 @@
-package nl.han.oose.dea;
+package nl.recalibrating.points;
 
 /**
  * Hello world!

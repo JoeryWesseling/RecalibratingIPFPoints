@@ -1,7 +1,8 @@
-package nl.han.oose.dea;
+package nl.recalibrating.points;
 
 
-import nl.han.oose.dea.exceptions.ResourceNotAvailableException;
+import nl.recalibrating.points.exceptions.ResourceNotAvailableException;
+import nl.recalibrating.points.exceptions.RunTimeCustom;
 
 import java.io.*;
 import java.net.Socket;
@@ -10,6 +11,7 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class ConnectionHandler implements Runnable {
 
@@ -21,6 +23,8 @@ public class ConnectionHandler implements Runnable {
     private static final String STATUS_405 = "405 Method Not Allowed";
     private static final String HTTP_STATUS_200 = "200 OK";
     private static final String HTTP_STATUS_404 = "404 NOT FOUND";
+
+    private final Logger logger = Logger.getLogger(getClass().getName());
 
 
     private Socket socket;
@@ -50,7 +54,7 @@ public class ConnectionHandler implements Runnable {
                 writeErrorResponse(outputStreamWriter, STATUS_405);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RunTimeCustom("Error occured: ",e);
         }
     }
 
@@ -70,7 +74,8 @@ public class ConnectionHandler implements Runnable {
         inputStreamReader.read(body, 0, contentLength);
 
         String requestBody = new String(body);
-        System.out.println("Received POST data: " + requestBody);
+
+        logger.info("Recieved POST data:" + requestBody);
 
         String response = "HTTP/1.1 200 OK\r\n" +
                 "Content-Length: " + contentLength + "\r\n" +
@@ -98,7 +103,7 @@ public class ConnectionHandler implements Runnable {
         var request = inputStreamReader.readLine();
         if (request == null || request.isEmpty()) return null;
 
-        System.out.println("recieved request: " + request);
+        logger.info("recieved request:" + request);
 
         String[] parts = request.split(" ");
         if (parts.length < 2) return null;
@@ -106,7 +111,6 @@ public class ConnectionHandler implements Runnable {
         this.method = parts[0];
         this.resource = parts[1];
 
-        // ✅ Redirect root path to /index.html
         if (this.resource.equals("/")) {
             this.resource = "/index.html";
         }
@@ -116,13 +120,13 @@ public class ConnectionHandler implements Runnable {
 
 
     private void writeResponse(BufferedWriter outputStreamWriter, String resource) {
-        System.out.println("Writing response for resource: " + resource);
+        logger.info("Writing response for resource: " + resource);
         try {
             writeHeader(outputStreamWriter, resource);
             writeBody(outputStreamWriter, resource);
             outputStreamWriter.flush();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RunTimeCustom("Something went wrong:  ", e);
         }
     }
 
@@ -137,7 +141,7 @@ public class ConnectionHandler implements Runnable {
         try {
             file = new HtmlPageReader().readFile(resource);
         } catch (ResourceNotAvailableException e) {
-            System.out.println(e.getMessage());
+            logger.info("something went wrong" + e.getMessage());
         }
 
         outputStreamWriter.write(file);
