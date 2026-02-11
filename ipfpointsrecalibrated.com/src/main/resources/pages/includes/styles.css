@@ -60,11 +60,11 @@ h1 {
     text-align: left;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+/*label {*/
+/*    display: block;*/
+/*    margin-bottom: 5px;*/
+/*    font-weight: bold;*/
+/*}*/
 
 input[type="number"] {
     width: calc(100% - 20px);
@@ -74,16 +74,28 @@ input[type="number"] {
     font-size: 1em; 
 }
 
-.radio-group {
+.radio-container {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 20px 0;
 }
 
-.radio-group div {
-    display: flex;
-    flex-direction: column;
+.radio-option {
+    display: inline-flex; /* fixes the issue */
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
+
+label.radio-option {
+    display: inline-flex;
+}
+
+
+
 
 button.calculate-btn {
     background-color: #f44336;
@@ -192,6 +204,26 @@ button.calculate-btn {
     transition: background-color 0.3s ease;
     margin-top: 15px;
 }
+
+button.lift-btn {
+    background-color: #f44336;
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px 10px 0;
+    display: inline-block;
+    min-width: auto;
+}
+
+button.lift-btn.active {
+    background-color: #d32f2f;  /* darker shade when active */
+}
+
 
 /* Hover effect for the button */
 button.calculate-btn:hover {
